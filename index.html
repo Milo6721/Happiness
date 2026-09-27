@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Essay about Happiness</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🙂</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FBF1DC;
+    --paper-raised: #F5E7C9;
+    --ink: #24201A;
+    --ink-soft: #5B5346;
+    --teal: #1E5C55;
+    --coral: #D85A38;
+    --gold: #DDA23A;
+    --rule: #C9BA9A;
+    --shadow: rgba(36, 32, 26, 0.14);
+    --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+    --font-body: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  }
+
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --paper: #1B1712;
+      --paper-raised: #242019;
+      --ink: #F1E9D8;
+      --ink-soft: #C4B9A4;
+      --teal: #5FB3A5;
+      --coral: #F08863;
+      --gold: #F0C168;
+      --rule: #4A4335;
+      --shadow: rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #1B1712;
+    --paper-raised: #242019;
+    --ink: #F1E9D8;
+    --ink-soft: #C4B9A4;
+    --teal: #5FB3A5;
+    --coral: #F08863;
+    --gold: #F0C168;
+    --rule: #4A4335;
+    --shadow: rgba(0, 0, 0, 0.45);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  html, body { height: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  #progress {
+    position: fixed;
+    top: env(safe-area-inset-top, 0px);
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--coral), var(--gold));
+    z-index: 50;
+    transition: width 0.08s linear;
+  }
+
+  header.masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  h1.title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-optical-sizing: auto;
+    font-size: clamp(2.6rem, 8vw, 4.6rem);
+    line-height: 1.02;
+    margin: 0 0 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .byline { font-size: 0.98rem; color: var(--ink-soft); line-height: 1.6; }
+  .byline .names { color: var(--ink); font-weight: 600; }
+  .byline .meta { display: block; margin-top: 0.25rem; font-size: 0.88rem; }
+
+  .sun { width: 64px; height: 64px; margin: 0 auto 1.4rem; position: relative; }
+  .sun svg { width: 100%; height: 100%; display: block; }
+  .sun circle { fill: var(--gold); }
+  .sun .rays { stroke: var(--coral); stroke-width: 3; stroke-linecap: round; }
+
+  main { max-width: 640px; margin: 0 auto; padding: 2.8rem 1.5rem 1rem; }
+
+  article p { font-size: 1.14rem; line-height: 1.75; margin: 0 0 1.3rem; }
+
+  article p:first-of-type::first-letter {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 3.6rem;
+    line-height: 0.78;
+    float: left;
+    padding: 0.05em 0.09em 0 0;
+    color: var(--coral);
+  }
+
+  blockquote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 4vw, 1.9rem);
+    line-height: 1.35;
+    color: var(--teal);
+    text-align: center;
+    margin: 2.4rem 0;
+    padding: 1.6rem 0.5rem;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  blockquote span {
+    display: block;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    margin-top: 0.7rem;
+  }
+
+  .spread { max-width: 640px; margin: 1rem auto 2.5rem; padding: 0 1.5rem; text-align: center; position: relative; }
+  .spread-box { background: var(--paper-raised); border-radius: 18px; padding: 2rem 1.5rem; position: relative; overflow: hidden; }
+  .spread-label { font-size: 0.95rem; color: var(--ink-soft); margin: 0 0 1rem; }
+
+  #smile-btn {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--paper);
+    background: var(--coral);
+    border: none;
+    border-radius: 999px;
+    padding: 0.85rem 1.8rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px var(--shadow);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  #smile-btn:hover { transform: translateY(-2px); box-shadow: 0 9px 20px var(--shadow); }
+  #smile-btn:active { transform: translateY(0); }
+  #smile-btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+
+  #smile-msg { margin-top: 1rem; min-height: 1.4em; font-size: 0.95rem; color: var(--teal); font-weight: 600; }
+
+  .float-emoji {
+    position: absolute;
+    bottom: 3.6rem;
+    font-size: 1.4rem;
+    pointer-events: none;
+    animation: floatUp 1.1s ease-out forwards;
+  }
+  @keyframes floatUp {
+    0%   { transform: translateY(0) scale(0.6) rotate(0deg); opacity: 0; }
+    15%  { opacity: 1; }
+    100% { transform: translateY(-90px) scale(1.15) rotate(14deg); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .float-emoji { animation: none; opacity: 0; }
+    #smile-btn { transition: none; }
+  }
+
+  .toolbar {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .toolbar button {
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    color: var(--ink);
+    background: transparent;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 0.5rem 1.1rem;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+  .toolbar button:hover { background: var(--paper-raised); border-color: var(--ink-soft); }
+  .toolbar button:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+  .toolbar button.done { color: var(--teal); border-color: var(--teal); }
+
+  .colophon {
+    max-width: 520px;
+    margin: 1rem auto 4rem;
+    padding: 2rem 1.5rem;
+    border-top: 3px double var(--rule);
+    border-bottom: 3px double var(--rule);
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    line-height: 1.9;
+    text-align: center;
+  }
+  .colophon .copy-line { color: var(--ink); font-weight: 600; margin-bottom: 0.6rem; }
+  .colophon .rights { margin-bottom: 1rem; }
+  .colophon dl {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.15rem 0.5rem;
+    justify-content: center;
+    margin: 0;
+    text-align: left;
+    font-size: 0.82rem;
+  }
+  .colophon dt { color: var(--ink-soft); }
+  .colophon dd { margin: 0; color: var(--ink); }
+
+  @media print {
+    #progress, .spread, .toolbar { display: none !important; }
+    body { background: #fff; color: #000; }
+  }
+
+  @media (max-width: 420px) {
+    header.masthead { padding: 2.6rem 1.2rem 1.6rem; }
+    main { padding: 2.2rem 1.2rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header class="masthead">
+  <div class="sun" aria-hidden="true">
+    <svg viewBox="0 0 64 64">
+      <g class="rays">
+        <line x1="32" y1="2" x2="32" y2="12"/>
+        <line x1="32" y1="52" x2="32" y2="62"/>
+        <line x1="2" y1="32" x2="12" y2="32"/>
+        <line x1="52" y1="32" x2="62" y2="32"/>
+        <line x1="10" y1="10" x2="17" y2="17"/>
+        <line x1="47" y1="47" x2="54" y2="54"/>
+        <line x1="54" y1="10" x2="47" y2="17"/>
+        <line x1="17" y1="47" x2="10" y2="54"/>
+      </g>
+      <circle cx="32" cy="32" r="14"/>
+    </svg>
+  </div>
+  <h1 class="title">Essay about Happiness</h1>
+  <p class="byline">
+    <span class="names">Miłosz Górski and Anna Kowalska Petrie</span>
+    <span class="meta" id="meta-line">2026</span>
+  </p>
+</header>
+
+<main>
+  <article id="essay">
+    <p>In my opinion, people should be happier, because happy life is a great life. Happiness is something people search for in their lives. Nobody wants to be sad, right? Because sad people are unhappy people.</p>
+
+    <p>Medics have found out that happier people live longer than sad and miserable ones. Nobody wants these misery guts around.</p>
+
+    <blockquote>
+      “Laugh and the whole world laughs with you, cry and you cry alone.”
+      <span>— old saying</span>
+    </blockquote>
+
+    <p>Everyone knows that life is short and if you are happy, you will enjoy it. Many people search for happiness in their short lives and never find it. Happiness is not something you can buy, so don't look for it in the local shop.</p>
+
+    <p>Being in the company of happy people is much easier than being with sad people.</p>
+
+    <p>Happy people won't have so many illnesses as sad people. Medicine has proved it, 89% of people in hospitals are sad.</p>
+
+    <p>We all must stay calm and must not panic. You must stay happy and everything will be OK. If you stay happy and jolly, your life will be healthier, easier and longer.</p>
+  </article>
+</main>
+
+<div class="spread">
+  <div class="spread-box">
+    <p class="spread-label">While you're here — spread a little happiness.</p>
+    <button id="smile-btn" type="button">Spread a smile 🙂</button>
+    <p id="smile-msg"></p>
+  </div>
+</div>
+
+<div class="toolbar">
+  <button id="theme-btn" type="button">Toggle theme</button>
+  <button id="copy-btn" type="button">Copy essay text</button>
+  <button id="download-btn" type="button">Download as .txt</button>
+  <button id="print-btn" type="button">Print / Save as PDF</button>
+</div>
+
+<div class="colophon">
+  <p class="copy-line">Copyright © 2026 by Miłosz Górski and Anna Kowalska Petrie</p>
+  <p class="rights">All rights reserved</p>
+  <dl>
+    <dt>Written by</dt><dd>Miłosz Górski and Anna Kowalska Petrie</dd>
+    <dt>Translated by</dt><dd>Miłosz Górski and Anna Kowalska Petrie</dd>
+    <dt>Edited by</dt><dd>Miłosz Górski and Anna Kowalska Petrie</dd>
+    <dt>Proofread by</dt><dd>Miłosz Górski and Anna Kowalska Petrie</dd>
+    <dt>Cover design by</dt><dd>Miłosz Górski and Anna Kowalska Petrie</dd>
+  </dl>
+</div>
+
+<script>
+  var essayText = document.getElementById('essay').innerText.trim();
+
+  // reading time
+  (function () {
+    var words = essayText.split(/\s+/).length;
+    var minutes = Math.max(1, Math.round(words / 200));
+    document.getElementById('meta-line').textContent = '2026 · ~' + minutes + ' min read';
+  })();
+
+  // scroll progress
+  (function () {
+    var bar = document.getElementById('progress');
+    function update() {
+      var h = document.documentElement;
+      var max = h.scrollHeight - h.clientHeight;
+      var pct = max > 0 ? (h.scrollTop / max) * 100 : 0;
+      bar.style.width = pct + '%';
+    }
+    document.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // smile spreader
+  (function () {
+    var btn = document.getElementById('smile-btn');
+    var msg = document.getElementById('smile-msg');
+    var box = document.querySelector('.spread-box');
+    var count = 0;
+    var emojis = ['🙂', '😄', '✨', '☀️', '💛'];
+    var messages = [
+      'Smile #{n} sent out into the world.',
+      'The world gets a little brighter.',
+      'That counts — thank you.',
+      'Another reason to smile: {n}.',
+      'Happiness likes company.'
+    ];
+    btn.addEventListener('click', function () {
+      count++;
+      var template = messages[(count - 1) % messages.length];
+      msg.textContent = template.replace('{n}', count);
+
+      var span = document.createElement('span');
+      span.className = 'float-emoji';
+      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = (30 + Math.random() * 40) + '%';
+      box.appendChild(span);
+      setTimeout(function () { span.remove(); }, 1200);
+    });
+  })();
+
+  // theme toggle: cycles system -> light -> dark -> system
+  (function () {
+    var btn = document.getElementById('theme-btn');
+    var root = document.documentElement;
+    function label() {
+      var current = root.getAttribute('data-theme');
+      btn.textContent = current === 'dark' ? 'Theme: dark'
+                        : current === 'light' ? 'Theme: light'
+                        : 'Theme: system';
+    }
+    btn.addEventListener('click', function () {
+      var current = root.getAttribute('data-theme');
+      if (current === 'dark') {
+        root.setAttribute('data-theme', 'light');
+      } else if (current === 'light') {
+        root.removeAttribute('data-theme');
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
+      label();
+    });
+    label();
+  })();
+
+  // copy essay text
+  (function () {
+    var btn = document.getElementById('copy-btn');
+    btn.addEventListener('click', function () {
+      var finish = function (ok) {
+        var original = 'Copy essay text';
+        btn.textContent = ok ? 'Copied ✓' : 'Copy failed';
+        btn.classList.toggle('done', ok);
+        setTimeout(function () {
+          btn.textContent = original;
+          btn.classList.remove('done');
+        }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(essayText).then(function () { finish(true); }, function () { finish(false); });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = essayText;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+          finish(true);
+        } catch (e) {
+          finish(false);
+        }
+        document.body.removeChild(ta);
+      }
+    });
+  })();
+
+  // download as .txt
+  (function () {
+    var btn = document.getElementById('download-btn');
+    btn.addEventListener('click', function () {
+      var content = 'ESSAY ABOUT HAPPINESS\nby Milosz Gorski and Anna Kowalska Petrie\n\n' + essayText +
+        '\n\n---\nCopyright (c) 2026 by Milosz Gorski and Anna Kowalska Petrie\nAll rights reserved\n';
+      var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url;
+      a.download = 'essay-about-happiness.txt';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    });
+  })();
+
+  // print
+  document.getElementById('print-btn').addEventListener('click', function () {
+    window.print();
+  });
+</script>
+
+</body>
+</html>
